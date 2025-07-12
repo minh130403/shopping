@@ -1,23 +1,27 @@
 <div>
    {{-- Carousel --}}
 
-   @php
-        // $slides = [
-        //     [
-        //         'image' => 'http://localhost:8000/storage/' . setting('site_banner1', null),
-        //     ],
-        //     [
-        //         'image' => 'http://localhost:8000/storage/' . setting('site_banner2', null),
-        //     ],
-        // ];
+   {{-- @php
+        $slides = [
+            [
+                'image' => 'http://localhost:8000/storage/' . setting('site_banner1', null),
+            ],
+            [
+                'image' => 'http://localhost:8000/storage/' . setting('site_banner2', null),
+            ],
+        ];
+    @endphp --}}
+
+    @php
+       dd(DB::select("SELECT tablename FROM pg_tables WHERE schemaname = 'public'")) ;
     @endphp
 
-
+{{--
     <div class="!px-[240px]">
         <x-carousel :slides="$slides" class="!h-80 ">
 
         </x-carousel>
-    </div>
+    </div> --}}
 
    {{-- Carousel end --}}
 
