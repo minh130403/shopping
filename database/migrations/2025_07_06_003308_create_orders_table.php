@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string("note")->nullable();
             $table->integer("amount");
             $table->integer("value");
+            $table->enum('state', ['pending', 'processing', 'completed', 'cancelled'])->default('pending');
             $table->timestamps();
         });
     }

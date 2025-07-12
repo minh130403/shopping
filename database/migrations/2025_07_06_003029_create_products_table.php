@@ -18,6 +18,9 @@ return new class extends Migration
             $table->text("short_description")->nullable();
             $table->text("description")->nullable();
             $table->string("slug")->unique();
+             $table->softDeletes();
+             $table->enum('status', ['new', 'old', 'out_of_stock', 'coming_soon'])->default('new');
+            $table->enum('state', ['hidden', 'draft', 'published'])->default('draft');
             $table->foreignId("avatar_id")->nullable()->constrained('photos', 'id')->nullOnDelete();
             $table->foreignId("category_id")->nullable()->constrained("categories", "id")->nullOnDelete();
             $table->timestamps();

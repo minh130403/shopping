@@ -17,6 +17,9 @@ return new class extends Migration
             $table->text('content')->nullable();
             $table->string('slug');
             $table->foreignId('avatar_id')->nullable()->constrained('photos', 'id')->nullOnDelete();
+            $table->softDeletes();
+            // $table->enum('status', ['new', 'old', 'out_of_stock', 'coming_soon'])->default('new');
+            $table->enum('state', ['hidden', 'draft', 'published'])->default('draft');
             $table->timestamps();
         });
     }
