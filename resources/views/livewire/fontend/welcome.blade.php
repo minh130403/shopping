@@ -2,14 +2,14 @@
    {{-- Carousel --}}
 
    @php
-        $slides = [
-            [
-                'image' => 'http://localhost:8000/storage/' . setting('site_banner1', null),
-            ],
-            [
-                'image' => 'http://localhost:8000/storage/' . setting('site_banner2', null),
-            ],
-        ];
+        // $slides = [
+        //     [
+        //         'image' => 'http://localhost:8000/storage/' . setting('site_banner1', null),
+        //     ],
+        //     [
+        //         'image' => 'http://localhost:8000/storage/' . setting('site_banner2', null),
+        //     ],
+        // ];
     @endphp
 
 
