@@ -11,8 +11,12 @@ COPY --from=composer:2.6 /usr/bin/composer /usr/bin/composer
 # Thư mục làm việc
 WORKDIR /var/www
 
-# Copy source
+# Copy source code
 COPY . .
+
+# Copy entrypoint script
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
 # Cài Laravel dependencies
 RUN composer install --no-dev --optimize-autoloader
@@ -20,8 +24,8 @@ RUN composer install --no-dev --optimize-autoloader
 # Phân quyền
 RUN chown -R www-data:www-data storage bootstrap/cache
 
-# Mở cổng HTTP
+# Mở cổng
 EXPOSE 8080
 
-# Khởi chạy Laravel HTTP server
-CMD ["sh", "-c", "php artisan config:clear && php artisan serve --host=0.0.0.0 --port=$PORT"]
+# Dùng entrypoint để migrate và khởi động server
+ENTRYPOINT ["/entrypoint.sh"]
