@@ -1,9 +1,9 @@
 FROM php:8.2
 
-# Cài các package cần thiết
+# Cài các package Laravel cần + PostgreSQL
 RUN apt-get update && apt-get install -y \
-    git curl unzip zip libzip-dev libpng-dev libonig-dev libxml2-dev \
-    && docker-php-ext-install pdo_mysql zip exif pcntl bcmath
+    git curl unzip zip libzip-dev libpng-dev libonig-dev libxml2-dev libpq-dev \
+    && docker-php-ext-install pdo_pgsql pgsql pdo_mysql zip exif pcntl bcmath
 
 # Cài composer
 COPY --from=composer:2.6 /usr/bin/composer /usr/bin/composer
@@ -11,17 +11,17 @@ COPY --from=composer:2.6 /usr/bin/composer /usr/bin/composer
 # Thư mục làm việc
 WORKDIR /var/www
 
-# Copy toàn bộ mã nguồn vào container
+# Copy source
 COPY . .
 
-# Cài dependency Laravel
+# Cài Laravel dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-# Phân quyền cho Laravel
+# Phân quyền
 RUN chown -R www-data:www-data storage bootstrap/cache
 
-# Mở port cho Render
+# Mở cổng HTTP
 EXPOSE 8080
 
-# Laravel sẽ serve qua HTTP (phải dùng sh để biến $PORT được phân tích)
+# Khởi chạy Laravel HTTP server
 CMD ["sh", "-c", "php artisan serve --host=0.0.0.0 --port=$PORT"]
