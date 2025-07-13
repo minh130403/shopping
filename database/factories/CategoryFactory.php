@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -22,7 +23,7 @@ class CategoryFactory extends Factory
         return [
             'name' => $name,
             'description' => fake()->sentence(5),
-            'slug' => Str::slug($name)
+            'slug' => Category::slugChecker(Str::slug($name))
         ];
     }
 }

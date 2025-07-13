@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Category extends Model
 {
@@ -33,6 +34,25 @@ class Category extends Model
     }
 
 
+    public static function slugChecker($slug, $i = 0, $currentId = null)
+    {
+        $newSlug = $i === 0 ? $slug : $slug . '-' . $i;
+
+        $isExist = Category::withTrashed()
+            ->where('slug', $newSlug)
+            ->when($currentId, function ($query) use ($currentId) {
+                $query->where('id', '!=', $currentId);
+            })
+            ->exists();
+
+        if (!$isExist) {
+            return Str::slug($newSlug);
+        }
+
+        return self::slugChecker($slug, $i + 1, $currentId);
+    }
+
+
     public function getAllCategoryIds(): array
     {
         $ids = [$this->id];
@@ -40,6 +60,7 @@ class Category extends Model
         foreach ($this->children as $child) {
             $ids = array_merge($ids, $child->getAllCategoryIds());
         }
+
 
         return $ids;
     }
