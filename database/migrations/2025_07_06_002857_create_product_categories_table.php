@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('avatar_id')->nullable()->constrained('photos', 'id')->nullOnDelete();
             $table->foreignId("parent_category")->nullable()->constrained("categories", "id")->nullOnDelete();
             $table->text("description")->nullable();
+
             $table->timestamps();
         });
     }

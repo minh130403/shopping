@@ -20,10 +20,10 @@ class ProductFactory extends Factory
         $name = fake()->sentence(7);
 
         return [
-            'id' => generateRandomId('SP'),
+            // 'id' => generateRandomId('SP'),
             'name' => $name,
-            'description' => fake()->paragraph(50),
-            'short_description' => fake()->paragraph(5),
+            'description' => fake()->paragraph(5),
+            'short_description' => fake()->paragraph(3),
             'price' => fake()->numberBetween(),
             'slug' => Product::slugChecker($name),
             'state' => fake()->randomElement(['published', 'draft', 'hidden']),

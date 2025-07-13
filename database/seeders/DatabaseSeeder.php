@@ -55,22 +55,16 @@ class DatabaseSeeder extends Seeder
             'Thiết bị khách sạn',
             'Xe đẩy phục vụ',
             'Cột chắn inox',
-            'Thiết bị nhà tắm',
-            'Dụng cụ vệ sinh',
-            'Máy đánh giầy',
-            'Thiết bị ngoại cảnh',
-            'Nhựa chống tĩnh điện',
-            'Hàng thanh lý'
         ];
 
         DatabaseSeeder::createCategory(array: $arrParent, avatar: $photoCategory);
 
-        $parentCategory = Category::all();
+        $parentCategory = Category::cursor();
 
 
         foreach($parentCategory as $parent)
         {
-            for($i = 1; $i< fake()->numberBetween(3,10); $i++){
+            for($i = 1; $i< 3; $i++){
                 Category::factory()->create([
                     'parent_category' => $parent->id,
                     'avatar_id' => $photoCategory->id
@@ -82,7 +76,7 @@ class DatabaseSeeder extends Seeder
         $childCategories = Category::whereNotNull('parent_category')->get();
 
         foreach($childCategories as $category){
-            for($i = 1; $i< fake()->numberBetween(8,15); $i++){
+            for($i = 1; $i< 8; $i++){
                 Product::factory()->create([
                     'avatar_id' => $photoProduct->id,
                     'category_id' => $category->id,
@@ -90,22 +84,22 @@ class DatabaseSeeder extends Seeder
             }
         }
 
-        foreach(Product::all() as $item){
-            View::factory()->count(fake()->numberBetween(0, 360))->forViewable($item)->create(['created_at' => fake()->dateTimeThisMonth('now')]);
-            Comment::factory()->count(fake()->numberBetween(0,10))->forCommentable($item)->create();
+        foreach(Product::cursor() as $item){
+            View::factory()->count(fake()->numberBetween(0, 30))->forViewable($item)->create(['created_at' => fake()->dateTimeThisMonth('now')]);
+            Comment::factory()->count(fake()->numberBetween(0,5))->forCommentable($item)->create();
         }
 
 
-        Post::factory()->count(36)->create();
+        Post::factory()->count(3)->create();
 
-        foreach(Post::all() as $item){
-            View::factory()->count(fake()->numberBetween(0, 360))->forViewable($item)->create();
+        foreach(Post::cursor() as $item){
+            View::factory()->count(fake()->numberBetween(0, 30))->forViewable($item)->create();
         }
 
 
         Order::factory()->count(36)->create();
 
-        foreach(Order::all() as $order){
+        foreach(Order::cursor() as $order){
             $totalAmount = 0;
             $totalValue = 0;
 
@@ -117,7 +111,7 @@ class DatabaseSeeder extends Seeder
                 $totalValue += $value;
 
                 OrderItem::factory()->create([
-                     'order_id' => $order->id,
+                    'order_id' => $order->id,
                     'product_id' => $item->id,
                     'product_name' => $item->name,
                     'price' => $item->price,

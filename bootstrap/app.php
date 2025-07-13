@@ -13,10 +13,6 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-         $middleware->alias([
-            'cart' => HasCart::class,
-            // 'auth' => Authenticate::class
-        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

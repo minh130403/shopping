@@ -20,7 +20,7 @@ class PostFactory extends Factory
 
         return [
             'title' => $title,
-            'content' => fake()->paragraph(40),
+            'content' => fake()->paragraph(8),
             'slug' => Str::slug($title),
             'avatar_id' => null
         ];

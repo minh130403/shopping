@@ -73,11 +73,11 @@ class Dashbroad extends Component
     public function loadHourlyData()
     {
         $results = DB::table('views')
-            ->selectRaw("strftime('%H', created_at) as hour, COUNT(*) as views")
-            ->whereDate('created_at', now()->toDateString())
-            ->groupBy('hour')
-            ->orderBy('hour')
-            ->get();
+                ->selectRaw("HOUR(created_at) as hour, COUNT(*) as views")
+                ->whereDate('created_at', now()->toDateString())
+                ->groupBy('hour')
+                ->orderBy('hour')
+                ->get();
 
         $hours = array_fill(0, 24, 0);
         foreach ($results as $item) {
@@ -89,12 +89,12 @@ class Dashbroad extends Component
 
     public function loadDailyData(Carbon $start, Carbon $end, $title = null)
     {
-        $results = DB::table('views')
-            ->selectRaw("date(created_at) as day, COUNT(*) as views")
-            ->whereBetween('created_at', [$start->toDateString(), $end->toDateString()])
-            ->groupBy('day')
-            ->orderBy('day')
-            ->get();
+            $results = DB::table('views')
+                ->selectRaw("DATE(created_at) as day, COUNT(*) as views")
+                ->whereBetween('created_at', [$start->toDateString(), $end->toDateString()])
+                ->groupBy(DB::raw("DATE(created_at)"))
+                ->orderBy('day')
+                ->get();
 
         $days = [];
         while ($start <= $end) {
