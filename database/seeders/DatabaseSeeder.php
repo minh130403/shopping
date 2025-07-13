@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         foreach ($array as $name) {
             Category::create([
                 'name' => $name,
-                'slug' => Str::slug($name),
+                'slug' => Category::slugChecker($name),
                 'parent_category' => $parent?->id,
                 'avatar_id' => $avatar->id
             ]);
