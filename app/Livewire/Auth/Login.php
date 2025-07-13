@@ -21,14 +21,16 @@ class Login extends Component
     public $password;
 
     public function mount(){
-        $this->email = fake()->email();
-        $this->password = fake()->password();
+        $this->email = 'admin@gmail.com';
+        $this->password = 'admin';
 
-        User::create([
-            'name' => fake()->name(),
-            'email' => $this->email,
-            'password' => Hash::make( $this->password)
-        ]);
+        User::updateOrCreate(
+            ['email' => 'admin@gmail.com'], // điều kiện tìm
+            [
+                'name' => 'Minh',
+                'password' => Hash::make('admin')
+            ] // dữ liệu tạo hoặc cập nhật
+        );
     }
 
     public function authenticate(){
