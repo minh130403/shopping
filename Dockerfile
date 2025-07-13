@@ -28,7 +28,7 @@ COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 # Cài Composer dependencies (sản phẩm, không cần dev)
-RUN composer install --no-dev --optimize-autoloader
+RUN composer install  --optimize-autoloader
 
 # Cài npm packages + build Vite
 RUN npm install && npm run build

@@ -23,7 +23,7 @@ class CategoryFactory extends Factory
         return [
             'name' => $name,
             'description' => fake()->sentence(5),
-            'slug' => Category::slugChecker(Str::slug($name))
+            'slug' => Category::slugChecker($name)
         ];
     }
 }
