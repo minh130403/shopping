@@ -7,9 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.39.1/ace.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.39.1/ext-language_tools.min.js"></script>
-    <script>
-    window.livewire_app_url = "{{ config('app.url') }}";
-</script>
+
 </head>
 <body class="min-h-screen font-sans antialiased bg-base-200">
     {{-- NAVBAR mobile only --}}
