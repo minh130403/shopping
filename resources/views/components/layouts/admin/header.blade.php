@@ -3,18 +3,6 @@
 <head>
     @include("partials.head")
 
-    @push('livewire-config')
-        <script>
-            window.livewire = window.livewire || {};
-            window.livewire.start = false;
-            window.livewire.uploadConfig = {
-                endpoint: "https://shopping-3646.onrender.com/livewire/upload-file"
-            };
-        </script>
-    @endpush
-
-
-    @stack('livewire-config')
     <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
     <script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
@@ -93,10 +81,6 @@
     {{-- Toast --}}
     <x-toast />
 
-    <script src="/livewire/livewire.js" type="module"></script>
-    <script type="module">
-        import { Livewire } from '/livewire/livewire.js';
-        Livewire.start();
-    </script>
+
 </body>
 </html>
