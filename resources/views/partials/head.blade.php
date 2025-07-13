@@ -1,7 +1,9 @@
-  <script>
-        window.livewire = window.livewire || {};
-        window.livewire.appUrl = "https://shopping-3646.onrender.com";
-    </script>
+<script>
+    window.livewire = window.livewire || {};
+    window.livewire.uploadConfig = {
+        endpoint: "https://shopping-3646.onrender.com/livewire/upload-file"
+    };
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
