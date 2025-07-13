@@ -6,7 +6,7 @@
         {{-- <x-badge value="7" class="badge-secondary badge-sm indicator-item" /> --}}
         <a href="/{{ $type }}/{{ $item->slug }}">
             <img class="hover:scale-110 transition duration-500 ease-in-out"
-            src="{{ Storage::url($item->avatar->path ?? '' ) }}"
+            src="{{ 'https://i0.wp.com/thewordwarrior.com/wp-content/uploads/woocommerce-placeholder.png?fit=655,655&ssl=1'  ?? Storage::url($item->avatar->path ?? '' ) }}"
             alt="Shoes" />
         </a>
     </figure>

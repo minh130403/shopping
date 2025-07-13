@@ -17,16 +17,16 @@
             {{-- Anh san pham --}}
             <div class="gallery flex flex-col gap-4 overflow-y-scroll cursor-pointer">
 
-                    <img class="w-24 rounded" src="{{ Storage::url($product->avatar->path ?? ''  ) }}" alt="{{ $product->avatar->alt ?? ''  }}" wire:click="updateSelectedPhoto({{ $product->avatar->id ?? '' }})">
+                    <img class="w-24 rounded" src="{{ 'https://i0.wp.com/thewordwarrior.com/wp-content/uploads/woocommerce-placeholder.png?fit=655,655&ssl=1' ?? Storage::url($product->avatar->path ?? ''  ) }}" alt="{{ $product->avatar->alt ?? ''  }}" wire:click="updateSelectedPhoto({{ $product->avatar->id ?? '' }})">
                 @foreach ($product->gallery as $item)
-                    <img class="w-24 rounded" src="{{ Storage::url($item->path) }}" alt="{{ $item->alt ?? '' }}" wire:click="updateSelectedPhoto({{ $item->id ?? ''}})">
+                    <img class="w-24 rounded" src="{{ 'https://i0.wp.com/thewordwarrior.com/wp-content/uploads/woocommerce-placeholder.png?fit=655,655&ssl=1' Storage::url($item->path) }}" alt="{{ $item->alt ?? '' }}" wire:click="updateSelectedPhoto({{ $item->id ?? ''}})">
                 @endforeach
 
             </div>
             <div class="relative">
                 {{-- <x-avatar :image="$user->avatar" :title="$user->username" :subtitle="$user->name" class="!w-10" /> --}}
                 <span class="block absolute -top-2 right-0 bg-red-500 rounded-xl px-2 text-white"> {{ $product->status == 'out_of_stock' ? 'Out of Stock'  : ucfirst( $product->status) }} </span>
-                <img class="w-[400px] h-full border border-gray-300 object-cover rounded" alt="{{ $selectedPhoto->alt ?? ''  }}" src="{{ Storage::url($selectedPhoto->path ?? 'photos/sample_product.webp') }}" alt="">
+                <img class="w-[400px] h-full border border-gray-300 object-cover rounded" alt="{{ $selectedPhoto->alt ?? ''  }}" src="{{ 'https://i0.wp.com/thewordwarrior.com/wp-content/uploads/woocommerce-placeholder.png?fit=655,655&ssl=1' ?? Storage::url($selectedPhoto->path ?? 'photos/sample_product.webp') }}" alt="">
 
             </div>
 

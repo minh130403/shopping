@@ -16,7 +16,7 @@
         @if ($selectedPhoto)
             <div class="flex gap-4 mb-3">
                 <div class="">
-                    <img class="h-[320px] w-[320px]  border rounded object-contain" src="{{ Storage::url($selectedPhoto->path )}}" alt="{{ $selectedPhoto->alt }}"  loading="lazy">
+                    <img class="h-[320px] w-[320px]  border rounded object-contain" src="{{ 'https://i0.wp.com/thewordwarrior.com/wp-content/uploads/woocommerce-placeholder.png?fit=655,655&ssl=1' ?? Storage::url($selectedPhoto->path )}}" alt="{{ $selectedPhoto->alt }}"  loading="lazy">
                 </div>
                 <div class="grow">
                     <form wire:submit="updatePhoto()">
@@ -43,7 +43,7 @@
             @foreach ($photos as $photo)
                 <li class="flex-1/6 rounded border border-gray-500 h-[140px] cursor-pointer"
                     wire:click="openModalWithPhoto({{ $photo->id }})">
-                    <img src="{{ Storage::url($photo->path) }}" alt="" class="h-full w-full object-cover">
+                    <img src="{{'https://i0.wp.com/thewordwarrior.com/wp-content/uploads/woocommerce-placeholder.png?fit=655,655&ssl=1' ?? Storage::url($photo->path) }}" alt="" class="h-full w-full object-cover">
                 </li>
             @endforeach
         </ul>

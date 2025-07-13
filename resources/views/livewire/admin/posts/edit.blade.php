@@ -41,7 +41,7 @@
                                         <div>
                                             <img @click="selected = {{ $photo->id }}; $wire.avatarId = {{ $photo->id }}"
                                             :class="selected === {{ $photo->id }} ? 'border-3 border-blue-300' : 'border'"
-                                            class="w-full h-full border rounded"  src="{{ Storage::url($photo->path) }}" alt="" loading="lazy" >
+                                            class="w-full h-full border rounded"  src="{{ 'https://i0.wp.com/thewordwarrior.com/wp-content/uploads/woocommerce-placeholder.png?fit=655,655&ssl=1' ?? Storage::url($photo->path) }}" alt="" loading="lazy" >
                                         </div>
                                     @endforeach
                                 </div>
@@ -69,7 +69,7 @@
 
                     @if($selectedPhoto)
                         <div class="mb-3">
-                            <img class="w-full rounded" src="{{ Storage::url($selectedPhoto->path) }}" alt="" @click="$wire.selectedPhotoModal = true">
+                            <img class="w-full rounded" src="{{ 'https://i0.wp.com/thewordwarrior.com/wp-content/uploads/woocommerce-placeholder.png?fit=655,655&ssl=1' ?? Storage::url($selectedPhoto->path) }}" alt="" @click="$wire.selectedPhotoModal = true">
                         </div>
                     @else
                         <x-button label="Open" @click="$wire.selectedPhotoModal = true" />

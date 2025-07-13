@@ -4,10 +4,10 @@
    @php
         $slides = [
             [
-                'image' => 'http://localhost:8000/storage/' . setting('site_banner1', null),
+                'image' =>   'https://cdn.pixabay.com/photo/2017/05/09/03/46/bc-2297205_960_720.jpg' ??  setting('site_banner1', null),
             ],
             [
-                'image' => 'http://localhost:8000/storage/' . setting('site_banner2', null),
+                'image' =>   'https://cdn.pixabay.com/photo/2017/05/09/03/46/bc-2297205_960_720.jpg' ??  setting('site_banner2', null),
             ],
         ];
     @endphp

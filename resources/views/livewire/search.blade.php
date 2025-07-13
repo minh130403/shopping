@@ -17,7 +17,7 @@
                 @if($results)
                     <ul class="absolute bottom-0 translate-y-full m-0 left-0 bg-white w-80 rounded max-h-[400px] border border-gray-500">
                         @foreach ($results as $item)
-                            <li><a  class="block p-4 flex gap-3 items-center hover:bg-gray-500 hover:text-white"  href="/products/{{ $item->slug }}"> <img class="w-12 rounded" src="{{ Storage::url($item->avatar->path ?? 'photos/sample_product.webp') }}" alt="">  <span class="grow block truncate"> {{ $item->name }}</span> </a> </li>
+                            <li><a  class="block p-4 flex gap-3 items-center hover:bg-gray-500 hover:text-white"  href="/products/{{ $item->slug }}"> <img class="w-12 rounded" src="{{ 'https://i0.wp.com/thewordwarrior.com/wp-content/uploads/woocommerce-placeholder.png?fit=655,655&ssl=' ?? Storage::url($item->avatar->path ?? 'photos/sample_product.webp') }}" alt="">  <span class="grow block truncate"> {{ $item->name }}</span> </a> </li>
                         @endforeach
                     </ul>
                 @endif

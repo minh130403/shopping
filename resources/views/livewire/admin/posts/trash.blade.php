@@ -21,7 +21,7 @@
             @endscope
 
             @scope('cell_avatar', $post)
-                <img class="w-12 rounded" src="{{ Storage::url($post->avatar->path ?? 'photos/sample_product.webp') }}" alt="">
+                <img class="w-12 rounded" src="{{ 'https://i0.wp.com/thewordwarrior.com/wp-content/uploads/woocommerce-placeholder.png?fit=655,655&ssl=1' ?? Storage::url($post->avatar->path) }}" alt="">
             @endscope
 
 
