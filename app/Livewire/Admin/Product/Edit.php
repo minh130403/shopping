@@ -51,7 +51,13 @@ class Edit extends Component
     public bool $selectedGalleryModal = false;
 
     public function mount($id){
-        $this->selectedProduct  = Product::find($id);
+
+        if($id == "create") {
+             $this->selectedProduct  = null;
+        } else {
+             $this->selectedProduct  = Product::find($id);
+        }
+
 
         if($this->selectedProduct) {
             $this->name = $this->selectedProduct->name;
