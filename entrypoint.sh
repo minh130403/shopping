@@ -3,7 +3,7 @@
 set -e
 
 echo "📦 Running migrations..."
-php artisan db:seed --force
+php artisan migrate:fresh --seed --force
 php artisan config:clear
 php artisan config:cache
 
