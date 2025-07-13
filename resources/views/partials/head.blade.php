@@ -1,5 +1,10 @@
 <script>
     window.livewire = window.livewire || {};
+    window.livewire.start = false; // Chặn auto start
+    window.livewire.uploadConfig = {
+        endpoint: "https://shopping-3646.onrender.com/livewire/upload-file"
+    };
+</script>    window.livewire = window.livewire || {};
     window.livewire.uploadConfig = {
         endpoint: "https://shopping-3646.onrender.com/livewire/upload-file"
     };

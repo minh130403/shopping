@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+    window.livewire = window.livewire || {};
+    window.livewire.start = false; // Chặn auto start
+    window.livewire.uploadConfig = {
+        endpoint: "https://shopping-3646.onrender.com/livewire/upload-file"
+    };
+</script>
     @include("partials.head")
     <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
     <script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
