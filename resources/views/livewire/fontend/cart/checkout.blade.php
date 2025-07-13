@@ -30,9 +30,9 @@
                         <label class="flex-1/5 font-medium" for="">Chọn tỉnh / thành phố: </label>
                         <select class="select grow" wire:model="city">
                             <option disabled selected>Vui lòng chọn tỉnh thành phố</option>
-                            <option>Crimson</option>
-                            <option>Amber</option>
-                            <option>Velvet</option>
+                            <option>Hà Nội</option>
+                            <option>Đà Nẵng</option>
+                            <option>Hồ Chí Minh</option>
                         </select>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                     <ul class="list bg-base-100 rounded-box shadow-md">
                         @foreach ($items as $item)
                              <li class="list-row">
-                            <div><img class="size-10 rounded-box" src="{{ Storage::url($item->avatar->path ?? 'photos/sample_product.webp') }}"/></div>
+                            <div><img class="size-10 rounded-box" src="{{ 'https://i0.wp.com/thewordwarrior.com/wp-content/uploads/woocommerce-placeholder.png?fit=655,655&ssl=' ?? Storage::url($item->avatar->path ?? 'photos/sample_product.webp') }}"/></div>
                             <div>
                             <div></div>
                             <div class="text-xs uppercase font-semibold">{{ $item['name'] }}</div>

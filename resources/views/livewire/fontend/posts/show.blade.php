@@ -9,7 +9,7 @@
                    {{ $selectedPost->description ?? ''}}
                 </p>
                 <div class="flex justify-center mb-2">
-                    <img class="w-64 rounded" src="{{ Storage::url($selectedPost->avatar->path ?? '') }}" alt="{{ $selectedPost->avatar->alt  ?? ''}}">
+                    <img class="w-64 rounded" src="{{ 'https://i0.wp.com/thewordwarrior.com/wp-content/uploads/woocommerce-placeholder.png?fit=655,655&ssl=' ?? Storage::url($selectedPost->avatar->path ?? '') }}" alt="{{ $selectedPost->avatar->alt  ?? ''}}">
                 </div>
 
 
