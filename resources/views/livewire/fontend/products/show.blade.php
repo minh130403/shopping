@@ -19,7 +19,7 @@
 
                     <img class="w-24 rounded" src="{{ 'https://i0.wp.com/thewordwarrior.com/wp-content/uploads/woocommerce-placeholder.png?fit=655,655&ssl=1' ?? Storage::url($product->avatar->path ?? ''  ) }}" alt="{{ $product->avatar->alt ?? ''  }}" wire:click="updateSelectedPhoto({{ $product->avatar->id ?? '' }})">
                 @foreach ($product->gallery as $item)
-                    <img class="w-24 rounded" src="{{ 'https://i0.wp.com/thewordwarrior.com/wp-content/uploads/woocommerce-placeholder.png?fit=655,655&ssl=1' Storage::url($item->path) }}" alt="{{ $item->alt ?? '' }}" wire:click="updateSelectedPhoto({{ $item->id ?? ''}})">
+                    <img class="w-24 rounded" src="{{ 'https://i0.wp.com/thewordwarrior.com/wp-content/uploads/woocommerce-placeholder.png?fit=655,655&ssl=1' ?? Storage::url($item->path) }}" alt="{{ $item->alt ?? '' }}" wire:click="updateSelectedPhoto({{ $item->id ?? ''}})">
                 @endforeach
 
             </div>
