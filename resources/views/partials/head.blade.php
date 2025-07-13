@@ -1,14 +1,3 @@
-<script>
-    window.livewire = window.livewire || {};
-    window.livewire.start = false; // Chặn auto start
-    window.livewire.uploadConfig = {
-        endpoint: "https://shopping-3646.onrender.com/livewire/upload-file"
-    };
-</script>    window.livewire = window.livewire || {};
-    window.livewire.uploadConfig = {
-        endpoint: "https://shopping-3646.onrender.com/livewire/upload-file"
-    };
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
