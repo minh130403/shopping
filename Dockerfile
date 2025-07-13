@@ -11,6 +11,9 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp --with-xpm \
     && docker-php-ext-install gd pdo_pgsql pgsql pdo_mysql zip exif pcntl bcmath
 
+# ✅ Tăng giới hạn bộ nhớ PHP lên 512MB
+RUN echo "memory_limit=512M" > /usr/local/etc/php/conf.d/memory-limit.ini
+
 # Cài Composer
 COPY --from=composer:2.6 /usr/bin/composer /usr/bin/composer
 
