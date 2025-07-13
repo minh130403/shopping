@@ -1,5 +1,5 @@
- <script>
-    window.livewire_app_url = "{{ config('app.url') }}";
+<script>
+    window.livewire_app_url = "https://shopping-3646.onrender.com";
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
