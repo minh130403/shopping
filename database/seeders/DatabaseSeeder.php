@@ -50,7 +50,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $arrParent = [
-            'Thùng rác',
+            // 'Thùng rác',
             'Thiết bị giao thông',
             'Thiết bị khách sạn',
             'Xe đẩy phục vụ',
