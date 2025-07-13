@@ -39,8 +39,8 @@ class Category extends Model
     {
         $newSlug = $i === 0 ? $slug : $slug . '-' . $i;
 
-        $isExist = Category::withTrashed()
-            ->where('slug', $newSlug)
+        $isExist = Category::
+            where('slug', $newSlug)
             ->when($currentId, function ($query) use ($currentId) {
                 $query->where('id', '!=', $currentId);
             })
