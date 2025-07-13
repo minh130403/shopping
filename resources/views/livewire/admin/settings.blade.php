@@ -26,7 +26,7 @@
                     <span class="text-lg font-bold mt-3">Logo: </span>
                     @if($settings['site_logo'])
                         <div class="mb-3">
-                            <img class="w-48 h-48 rounded" src="{{ 'https://i0.wp.com/thewordwarrior.com/wp-content/uploads/woocommerce-placeholder.png?fit=655,655&ssl=1' ?? Storage::url($settings['site_logo'] )}}" alt=""  wire:click="openModal('site_logo')">
+                            <img class="w-48 h-48 rounded" src="{{ 'https://99designs-blog.imgix.net/blog/wp-content/uploads/2022/06/Starbucks_Corporation_Logo_2011.svg-e1657703028844.png?auto=format&q=60&fit=max&w=930' ?? Storage::url($settings['site_logo'] )}}" alt=""  wire:click="openModal('site_logo')">
                         </div>
                     @else
                         <x-button label="Open" wire:click="openModal('site_logo')" icon="o-plus" class="w-48 h-48"/>

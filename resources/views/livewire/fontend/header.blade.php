@@ -4,7 +4,7 @@
         <div class="container flex flex-row items-center">
             <div class="logo flex flex-row gap-4 items-center">
                 <a href="/">
-                    <img class="rounded-md w-[48px] h-[48px]"  src="http://localhost:8000{{ Storage::url(setting("site_logo")) }}" alt="">
+                    <img class="rounded-md w-[48px] h-[48px]"  src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2022/06/Starbucks_Corporation_Logo_2011.svg-e1657703028844.png?auto=format&q=60&fit=max&w=930" alt="">
                 </a>
                 <h2 class="font-medium text-2xl uppercase web-name" >{{ setting("site_name") }}</h2>
              </div>
