@@ -50,7 +50,7 @@ class DatabaseSeeder extends Seeder
         $subCategories = [];
 
         foreach ($parentCategory as $parent) {
-            for ($i = 0; $i < 2; $i++) {
+            for ($i = 0;$i < 2; $i++) {
                 $subCategories[] = Category::factory()->make([
                     'parent_category' => $parent->id,
                     'avatar_id' => $photoCategory->id,
@@ -63,7 +63,7 @@ class DatabaseSeeder extends Seeder
         $allProducts = [];
 
         foreach ($childCategories as $category) {
-            $products = Product::factory()->count(7)->make([
+            $products = Product::factory()->count(4)->make([
                 'avatar_id' => $photoProduct->id,
                 'category_id' => $category->id,
             ])->toArray();
@@ -74,14 +74,14 @@ class DatabaseSeeder extends Seeder
         $views = [];
         $comments = [];
         foreach (Product::cursor() as $item) {
-            foreach (range(1, fake()->numberBetween(0, 30)) as $i) {
+            foreach (range(1, 3) as $i) {
                 $views[] = View::factory()->make([
                     'viewable_id' => $item->id,
                     'viewable_type' => Product::class,
                     'created_at' => fake()->dateTimeThisMonth('now'),
                 ])->toArray();
             }
-            foreach (range(1, fake()->numberBetween(0, 5)) as $i) {
+            foreach (range(1, 3) as $i) {
                 $comments[] = Comment::factory()->make([
                     'commentable_id' => $item->id,
                     'commentable_type' => Product::class,
@@ -95,7 +95,7 @@ class DatabaseSeeder extends Seeder
 
         $postViews = [];
         foreach (Post::cursor() as $post) {
-            foreach (range(1, fake()->numberBetween(0, 30)) as $i) {
+            foreach (range(1, 3) as $i) {
                 $postViews[] = View::factory()->make([
                     'viewable_id' => $post->id,
                     'viewable_type' => Post::class,
@@ -111,7 +111,7 @@ class DatabaseSeeder extends Seeder
             $totalAmount = 0;
             $totalValue = 0;
 
-            foreach (Product::inRandomOrder()->take(fake()->numberBetween(1, 5))->get() as $item) {
+            foreach (Product::inRandomOrder()->take(fake()->numberBetween(1, 2))->get() as $item) {
                 $amount = fake()->numberBetween(1, 10);
                 $value = $amount * $item->price;
 
