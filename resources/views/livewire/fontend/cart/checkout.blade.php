@@ -26,14 +26,9 @@
                      @error('phoneNumber')
                             <span class="block text-red-500"> {{ $message }} </span>
                         @enderror
-                    <div class="form-input flex flex-row items-center gap-4 mb-3">
-                        <label class="flex-1/5 font-medium" for="">Chọn tỉnh / thành phố: </label>
-                        <select class="select grow" wire:model="city">
-                            <option disabled selected>Vui lòng chọn tỉnh thành phố</option>
-                            <option>Hà Nội</option>
-                            <option>Đà Nẵng</option>
-                            <option>Hồ Chí Minh</option>
-                        </select>
+                     <div class="form-input flex flex-row items-center gap-4 mb-3">
+                        <label class="flex-1/5 font-medium" for="">Địa chỉ: </label>
+                        <input type="text" placeholder="Nhập địa chỉ" class="input grow" wire:model="address"/>
                     </div>
                 </div>
                 <div class="note mb-3 border-b border-gray-200">

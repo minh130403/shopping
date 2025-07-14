@@ -26,7 +26,7 @@ class CheckOut extends Component
     #[Rule('regex:/^0[0-9]{9}$/', message:"Vui lòng nhập số điện thoại của bạn!")]
     public string $phoneNumber;
 
-    public ?string $city = '';
+    public ?string $address = '';
     public ?string $note = '';
     public array $items = [];
     public array $quantities = [];
@@ -56,7 +56,7 @@ class CheckOut extends Component
         $order = Order::create([
             'customer_name' => $this->customerName,
             'phone' => $this->phoneNumber,
-            'address' => $this->city,
+            'address' => $this->address,
             'amount' => $this->totalAmount,
             'value' => $this->totalPrice,
             'note' => $this->note,
