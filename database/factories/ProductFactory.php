@@ -24,7 +24,7 @@ class ProductFactory extends Factory
             'name' => $name,
             'description' => fake()->paragraph(5),
             'short_description' => fake()->paragraph(3),
-            'price' => fake()->numberBetween(),
+            'price' => fake()->numberBetween(0, 10000000),
             'slug' => Product::slugChecker($name),
             'state' => fake()->randomElement(['published', 'draft', 'hidden']),
             'status' => fake()->randomElement(['new', 'old', 'out_of_stock', 'coming_soon'])
