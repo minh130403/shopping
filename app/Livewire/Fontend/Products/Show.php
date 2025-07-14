@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Fontend\Products;
 
+use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Photo;
 use App\Models\Product;
@@ -111,7 +112,8 @@ class Show extends Component
                                     ->where("state", "published")
                                     ->orderByDesc("created_at")
                                     ->take(10)
-                                    ->get()
+                                    ->get(),
+            'root' => Category::whereNull('parent_category')->inRandomOrder()->take(5)->get()
         ])->title($this->product->name . ' | Thực tập doanh nghiệp');
     }
 }
