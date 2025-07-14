@@ -62,6 +62,7 @@ class DatabaseSeeder extends Seeder
         $parentCategory = Category::cursor();
 
 
+
         foreach($parentCategory as $parent)
         {
             for($i = 1; $i< 3; $i++){

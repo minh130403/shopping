@@ -27,7 +27,8 @@ class Show extends Component
                             ->select('id', 'slug', 'name', 'avatar_id', 'price')
                             ->whereIn('category_id', $this->category->getAllCategoryIds())
                             ->where('state', 'published')
-                            ->paginate(8)
+                            ->paginate(8),
+            'root' => Category::whereNull("parent_category")->get()
         ])->title($this->category->name);
     }
 }
