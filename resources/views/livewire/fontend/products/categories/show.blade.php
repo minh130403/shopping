@@ -1,6 +1,6 @@
 <div>
-    <div class="" >
-        <img class="px-2 md:px-0 h-80 object-cover" src="{{ 'https://cdn.pixabay.com/photo/2017/05/09/03/46/bc-2297205_960_720.jpg' ?? Storage::url($category->avatar->path ?? '' )}}" alt="">
+    <div class="md:mx-48" >
+        <img class="px-2 md:px-0  w-full h-80 object-cover" src="{{ 'https://cdn.pixabay.com/photo/2017/05/09/03/46/bc-2297205_960_720.jpg' ?? Storage::url($category->avatar->path ?? '' )}}" alt="">
     </div>
     <div class="border border-gray-200">
             <div class="md:mx-48">

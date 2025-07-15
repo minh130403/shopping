@@ -22,11 +22,11 @@ class Show extends Component
     public $productSame;
 
     public ?Photo $selectedPhoto;
-    #[Rule("required", message: "Vui lòng điền đủ thôgn tin")]
+    #[Rule("required", message: "Vui lòng điền đủ thông tin")]
     public $titleCmt;
-    #[Rule("required", message: "Vui lòng điền đủ thôgn tin")]
+    #[Rule("required", message: "Vui lòng điền đủ thông tin")]
     public $authorCmt;
-    #[Rule("required", message: "Vui lòng điền đủ thôgn tin")]
+    #[Rule("required", message: "Vui lòng điền đủ thông tin")]
     public $contentCmt;
 
 
@@ -91,6 +91,9 @@ class Show extends Component
 
 
     public function createCmt(){
+
+        $this->validate();
+
         Comment::create([
             'title' => $this->titleCmt,
             'name' => $this->authorCmt,
