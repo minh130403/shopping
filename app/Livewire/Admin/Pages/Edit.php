@@ -39,17 +39,25 @@ class Edit extends Component
     }
 
     public function save(){
-        $page =  Page::updateOrCreate(
-        ['id' => $this->selectedPage?->id ],
-        [
-            'title' => $this->title,
-            'content' => $this->content,
-            'slug' => Str::slug($this->title)
-        ]);
+
+        if($this->selectedPage){
+            $this->selectedPage->update([
+                'title' => $this->title,
+                'content' => $this->content,
+                'slug' => Str::slug($this->title)
+            ]);
+        } else {
+            $this->selectedPage = Page::create([
+                  'title' => $this->title,
+                'content' => $this->content,
+                'slug' => Str::slug($this->title)
+            ]);
+        }
+
 
          session()->flash('success', 'Đã cập nhật sản phẩm thành công!');
 
-           return redirect("/admin/pages/" . $page->id);
+           return redirect("/admin/pages/" . $this->selectedPage->id);
     }
 
     public function render()

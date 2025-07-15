@@ -105,27 +105,40 @@ class Edit extends Component
         $this->validate();
 
 
-        $product =  Product::updateOrCreate(
-        ['id' => $this->selectedProduct?->id ?? null],
-        [
-            'name' => $this->name,
-            'description' => $this->description,
-            'short_description' => $this->shortDescription,
-            'slug' => Product::slugChecker($this->slug ?? $this->name,currentId: $this->selectedProduct?->id),
-            'avatar_id' => $this->avatarId,
-            'category_id' => $this->categoryId,
-            'status' => $this->status ?? 'new',
-            'state' => $this->state ?? 'published',
-        ]
-       );
+        if($this->selectedProduct->id ){
+             $this->selectedProduct->update([
+                'name' => $this->name,
+                'description' => $this->description,
+                'short_description' => $this->shortDescription,
+                'slug' => Product::slugChecker($this->slug ?? $this->name,currentId: $this->selectedProduct?->id),
+                'avatar_id' => $this->avatarId,
+                'category_id' => $this->categoryId,
+                'status' => $this->status ?? 'new',
+                'state' => $this->state ?? 'published',
+            ]);
+        } else {
+           $this->selectedProduct =   Product::create([
+                     'name' => $this->name,
+                'description' => $this->description,
+                'short_description' => $this->shortDescription,
+                'slug' => Product::slugChecker($this->slug ?? $this->name,currentId: $this->selectedProduct?->id),
+                'avatar_id' => $this->avatarId,
+                'category_id' => $this->categoryId,
+                'status' => $this->status ?? 'new',
+                'state' => $this->state ?? 'published',
+            ]);
+        }
+
 
        if($this->galleryPhotoId){
             $this->selectedProduct->gallery()->sync($this->galleryPhotoId);
        }
 
+
+
        session()->flash('success', 'Đã cập nhật sản phẩm thành công!');
 
-       return redirect("/admin/products/" . $product->id);
+       return redirect("/admin/products/" . $this->selectedProduct->id);
     }
 
 

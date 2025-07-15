@@ -79,21 +79,29 @@ class Edit extends Component
         $this->validate();
 
 
-        $post =  Post::updateOrCreate(
-        ['id' => $this->selectedPost?->id ],
-        [
-            'title' => $this->title,
-            'content' => $this->content,
-            'slug' => Post::slugChecker($this->slug ?? $this->title,currentId: $this->selectedPost?->id),
-            'avatar_id' => $this->avatarId,
-            'state' => $this->state ?? 'published',
-        ]
-       );
+        if($this->selectedPost->id){
+            $this->selectedPost->update([
+                     'title' => $this->title,
+                    'content' => $this->content,
+                    'slug' => Post::slugChecker($this->slug ?? $this->title,currentId: $this->selectedPost?->id),
+                    'avatar_id' => $this->avatarId,
+                    'state' => $this->state ?? 'published',
+            ]);
+        } else {
+            $this->selectedPost = Post::create([
+                     'title' => $this->title,
+                    'content' => $this->content,
+                    'slug' => Post::slugChecker($this->slug ?? $this->title,currentId: $this->selectedPost?->id),
+                    'avatar_id' => $this->avatarId,
+                    'state' => $this->state ?? 'published',
+            ]);
+        }
+
 
 
        session()->flash('success', 'Đã cập nhật sản phẩm thành công!');
 
-       return redirect("/admin/posts/" . $post->id);
+       return redirect("/admin/posts/" . $this->selectedPost->id);
     }
 
     public function render()

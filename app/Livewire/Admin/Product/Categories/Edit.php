@@ -55,21 +55,29 @@ class Edit extends Component
      public function save(){
         $this->validate();
 
-
-        $category =  Category::updateOrCreate(
-        [ 'id' => $this->selectedCategory?->id],
-        [
-            'name' => $this->name,
+        if($this->selectedCategory->id){
+            $this->selectedCategory->update([
+                'name' => $this->name,
             'description' => $this->description,
             'slug' => $this->slug ? Str::slug($this->slug) : Str::slug($this->name),
             'parent_category' => $this->parentCategory,
             'avatar_id' => $this->avatarId
-        ]
-       );
+            ]);
+        } else {
+            $this->selectedCategory = Category::create([
+                'name' => $this->name,
+                'description' => $this->description,
+                'slug' => $this->slug ? Str::slug($this->slug) : Str::slug($this->name),
+                'parent_category' => $this->parentCategory,
+                'avatar_id' => $this->avatarId
+            ]);
+
+        }
+
 
        session()->flash('success', 'Đã cập nhật sản phẩm thành công!');
 
-       return redirect("/admin/categories/products/" . $category->id);
+       return redirect("/admin/categories/products/" . $this->selectedCategory->id);
     }
 
 
