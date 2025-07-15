@@ -105,7 +105,7 @@ class Edit extends Component
         $this->validate();
 
 
-        if($this->selectedProduct->id ){
+        if($this->selectedProduct ){
              $this->selectedProduct->update([
                 'name' => $this->name,
                 'description' => $this->description,

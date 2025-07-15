@@ -79,7 +79,7 @@ class Edit extends Component
         $this->validate();
 
 
-        if($this->selectedPost->id){
+        if($this->selectedPost){
             $this->selectedPost->update([
                      'title' => $this->title,
                     'content' => $this->content,

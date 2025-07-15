@@ -55,7 +55,7 @@ class Edit extends Component
      public function save(){
         $this->validate();
 
-        if($this->selectedCategory->id){
+        if($this->selectedCategory){
             $this->selectedCategory->update([
                 'name' => $this->name,
             'description' => $this->description,
