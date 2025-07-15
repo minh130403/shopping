@@ -71,17 +71,17 @@ class DatabaseSeeder extends Seeder
         }
         Product::insert($allProducts);
 
-        $views = [];
+        // $views = [];
         $comments = [];
 
         foreach (Product::cursor() as $item) {
-            foreach (range(1, 3) as $i) {
-                $views[] = View::factory()->make([
-                    'viewable_id' => $item->id,
-                    'viewable_type' => Product::class,
-                    'created_at' => fake()->dateTimeThisMonth('now'),
-                ])->toArray();
-            }
+            // foreach (range(1, 3) as $i) {
+            //     $views[] = View::factory()->make([
+            //         'viewable_id' => $item->id,
+            //         'viewable_type' => Product::class,
+            //         'created_at' => fake()->dateTimeThisMonth('now'),
+            //     ])->toArray();
+            // }
             foreach (range(1, 3) as $i) {
                 $comments[] = Comment::factory()->make([
                     'commentable_id' => $item->id,
@@ -89,21 +89,21 @@ class DatabaseSeeder extends Seeder
                 ])->toArray();
             }
         }
-        View::insert($views);
+        // View::insert($views);
         Comment::insert($comments);
 
         Post::factory()->count(3)->create();
 
-        $postViews = [];
-        foreach (Post::cursor() as $post) {
-            foreach (range(1, 3) as $i) {
-                $postViews[] = View::factory()->make([
-                    'viewable_id' => $post->id,
-                    'viewable_type' => Post::class,
-                ])->toArray();
-            }
-        }
-        View::insert($postViews);
+        // $postViews = [];
+        // foreach (Post::cursor() as $post) {
+        //     foreach (range(1, 3) as $i) {
+        //         $postViews[] = View::factory()->make([
+        //             'viewable_id' => $post->id,
+        //             'viewable_type' => Post::class,
+        //         ])->toArray();
+        //     }
+        // }
+        // View::insert($postViews);
 
         Order::factory()->count(7)->create();
 
