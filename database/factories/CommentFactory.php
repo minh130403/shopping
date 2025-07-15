@@ -19,7 +19,7 @@ class CommentFactory extends Factory
         return [
             'title' => fake()->sentence(5),
             'name' => fake()->name(),
-            'content' => fake()->paragraph(3),
+            'content' => fake()->paragraph(1),
             'commentable_type' => null,
             'commentable_id' => null,
             'state' => fake()->randomElement(['published', 'hidden'])
