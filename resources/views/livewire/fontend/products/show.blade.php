@@ -127,7 +127,7 @@
             <div class="heading">
                 <h3 class="uppercase block font-bold py-4 mb-3">Sản phẩm cùng loại</h3>
             </div>
-            <div class="grid grid-cols-4 gap-2">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
                     @foreach ($productSame as $item )
                             <x-my-card  :$item type="products" />
                     @endforeach
