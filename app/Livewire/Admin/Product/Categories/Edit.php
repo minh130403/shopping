@@ -32,7 +32,11 @@ class Edit extends Component
     public bool $selectedPhotoModal = false;
 
     public function mount($id){
-        $this->selectedCategory  = Category::find($id);
+        if($id){
+            $this->selectedCategory = null;
+        } else {
+            $this->selectedCategory = Category::find($id);
+        }
 
         if($this->selectedCategory) {
             $this->name = $this->selectedCategory->name;

@@ -24,7 +24,7 @@ class Product extends Model
 
     protected $guarded = [];
 
-    public $incrementing = false;
+    public $incrementing = true;
 
     public function category(){
         return $this->belongsTo(Category::class);

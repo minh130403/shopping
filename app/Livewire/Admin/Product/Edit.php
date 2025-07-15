@@ -117,8 +117,8 @@ class Edit extends Component
                 'state' => $this->state ?? 'published',
             ]);
         } else {
-           $this->selectedProduct =   Product::create([
-                     'name' => $this->name,
+           $this->selectedProduct =  Product::create([
+                'name' => $this->name,
                 'description' => $this->description,
                 'short_description' => $this->shortDescription,
                 'slug' => Product::slugChecker($this->slug ?? $this->name,currentId: $this->selectedProduct?->id),
@@ -129,6 +129,8 @@ class Edit extends Component
             ]);
         }
 
+
+        // dd($this->selectedProduct);
 
        if($this->galleryPhotoId){
             $this->selectedProduct->gallery()->sync($this->galleryPhotoId);
