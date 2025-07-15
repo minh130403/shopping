@@ -1,7 +1,7 @@
 <div >
     @if ($selectedProduct)
         <div class="mb-3">
-            <x-button label="Add product" icon="o-plus" class="bg-white" link="/admin/products/create"/>
+            <x-button label="Thêm sản phẩm" icon="o-plus" class="bg-white" link="/admin/products/create"/>
         </div>
     @endif
     <div>
@@ -23,11 +23,11 @@
 
             {{-- Left --}}
             <div class="col-span-3">
-                <x-input label="Name" wire:model="name" />
-                <x-markdown wire:model="description" label="Description" />
-                <x-markdown wire:model="shortDescription" label="Short Description" :config="$config" />
+                <x-input label="Tên sản phẩm" wire:model="name" />
+                <x-markdown wire:model="description" label="Mô tả" />
+                <x-markdown wire:model="shortDescription" label="Mô tả ngắn" :config="$config" />
                 {{-- <x-input label="Price" wire:model="amount" prefix="VND" money hint="It submits an unmasked value" /> --}}
-                <x-input label="Slug" wire:model="slug" />
+                <x-input label="Đường dẫn" wire:model="slug" />
             </div>
 
 
@@ -53,8 +53,8 @@
                         </x-tabs>
 
                         <x-slot:actions>
-                            <x-button label="Cancel" @click="$wire.selectedPhotoModal = false" />
-                            <x-button label="Save" @click="$wire.selectedPhotoModal = false; $wire.loadPhoto()" class="bg-blue-500 text-white" />
+                            <x-button label="Thoát" @click="$wire.selectedPhotoModal = false" />
+                            <x-button label="Lưu" @click="$wire.selectedPhotoModal = false; $wire.loadPhoto()" class="bg-blue-500 text-white" />
                         </x-slot:actions>
                     </x-modal>
 
@@ -63,7 +63,7 @@
                     wire:model="categoryId"
                     :options="$categories"
                     option-value="id"
-                    placeholder="Select parent category"
+                    placeholder="Chọn danh mục"
                     placeholder-value="0"
                     option-label="name"
                     class="mb-3"/>
@@ -84,20 +84,20 @@
                     option-label="label"
                     class="mb-3"/>
 
-                    <div class="mb-3">Avatar:</div>
+                    <div class="mb-3">Ảnh đại diện:</div>
 
                     @if($selectedPhoto)
                         <div class="mb-3">
                             <img class="w-full rounded" src="{{ 'https://i0.wp.com/thewordwarrior.com/wp-content/uploads/woocommerce-placeholder.png?fit=655,655&ssl=1' ?? Storage::url($selectedPhoto->path) }}" alt="" @click="$wire.selectedPhotoModal = true">
                         </div>
                     @else
-                        <x-button label="Open" @click="$wire.selectedPhotoModal = true" />
+                        <x-button class="w-full h-64 mb-3" @click="$wire.selectedPhotoModal = true" icon="o-photo"/>
                     @endif
                 {{-- <x-slot:actions class="block"> --}}
 
                 {{-- </x-slot:actions> --}}
                     <div class="gallery">
-                        <span class="block mb-3">Gallery:</span>
+                        <span class="block mb-3">Thư viện ảnh:</span>
 
                          {{-- <x-file wire:model="file" label="Receipt" hint="Only PDF" accept="application/pdf" class="mb-3"/> --}}
                         <x-modal wire:model="selectedGalleryModal" title="Photo" class="backdrop-blur" box-class="max-w-[1200px]" >
@@ -146,8 +146,8 @@
                             </x-tabs>
 
                             <x-slot:actions>
-                                <x-button label="Cancel" @click="$wire.selectedGalleryModal = false" />
-                                <x-button label="Save" @click="$wire.selectedGalleryModal = false; $wire.loadGallery()" class="bg-blue-500 text-white" />
+                                <x-button label="Thoát" @click="$wire.selectedGalleryModal = false" />
+                                <x-button label="Lưu" @click="$wire.selectedGalleryModal = false; $wire.loadGallery()" class="bg-blue-500 text-white" />
                             </x-slot:actions>
                         </x-modal>
 
@@ -162,12 +162,12 @@
 
                             </div>
                         @else
-                            <x-button label="Open" @click="$wire.selectedGalleryModal = true" />
+                            <x-button class="w-full h-64 mb-3" @click="$wire.selectedGalleryModal = true"  icon="o-photo"/>
                         @endif
                     </div>
                     <div class="text-right">
-                        <x-button label="Back" />
-                        <x-button label="{{ $selectedProduct ? 'Update' : 'Create' }}" class="btn-primary" type="submit" spinner="save" />
+                        {{-- <x-button label="Back" /> --}}
+                        <x-button label="{{ $selectedProduct ? 'Cập nhật' : 'Thêm mới' }}" class="btn-primary" type="submit" spinner="save" />
                     </div>
             </div>
         </x-form>

@@ -2,12 +2,12 @@
    <div class="flex gap-3 mb-3 border-b-1 border-gray-400">
         <div  class="grow">
             <div class="flex justify-between">
-                <h3 class="text-lg font-semibold mb-3">Views </h3>
+                <h3 class="text-lg font-semibold mb-3">Lượt xem </h3>
 
                     <select wire:model.live="filterChart" class="border border-gray-200 rounded-lg pl-2 ">
-                        <option value="day">Today</option>
-                        <option value="week">Week</option>
-                        <option value="month">Month</option>
+                        <option value="day">Hôm nay</option>
+                        <option value="week">Tuần này</option>
+                        <option value="month">Tháng này</option>
                     </select>
 
             </div>
@@ -25,8 +25,8 @@
 
                 $headers = [
                     // ['key' => 'id', 'label' => '#'],
-                    ['key' => 'name', 'label' => 'Name', 'class' => 'w-[200px]'],
-                    ['key' => 'views_count', 'label' => 'Views'] # <---- nested attributes
+                    ['key' => 'name', 'label' => 'Tên sản phẩm', 'class' => 'w-[200px]'],
+                    ['key' => 'views_count', 'label' => 'Lượt xem'] # <---- nested attributes
                 ];
             @endphp
 
@@ -49,8 +49,8 @@
                 $headers = [
                     // ['key' => 'id', 'label' => '#'],
                     ['key' => 'id', 'label' => '#', ],
-                    ['key' => 'customer_name', 'label' => 'Customer Name', ],
-                    ['key' => 'phone', 'label' => 'Phone Number', ],
+                    ['key' => 'customer_name', 'label' => 'Tên khách hàng', ],
+                    ['key' => 'phone', 'label' => 'SĐT', ],
                     ['key' => 'amount', 'label' => 'Số lượng', ],
                     ['key' => 'value', 'label' => 'Giá trị'] # <---- nested attributes
                 ];

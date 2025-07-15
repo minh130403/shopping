@@ -14,7 +14,7 @@ use Livewire\Attributes\Locked;
 use Livewire\Attributes\Session;
 
 #[Layout('components.layouts.admin')]
-#[Title('Product Editor')]
+#[Title('Chỉnh Sửa Sản Phẩm')]
 class Edit extends Component
 {
     public ?Product $selectedProduct = null;
@@ -133,18 +133,18 @@ class Edit extends Component
     {
         return view('livewire.admin.product.edit', [
             'photos' => Photo::all(),
-            'categories' => Category::select('id', 'name')->get(),
+            'categories' => Category::select('id', 'name')->whereNotNull("parent_category")->get(),
             'statuses' => [
-                ['label' => 'New', 'value' => 'new'],
-                ['label' => 'Old', 'value' => 'old'],
-                ['label' => 'Out of Stock', 'value' => 'out_of_stock'],
-                ['label' => 'Coming Soon', 'value' => 'coming_soon'],
+                ['label' => 'Mới', 'value' => 'new'],
+                ['label' => 'Cũ', 'value' => 'old'],
+                ['label' => 'Hết hàng', 'value' => 'out_of_stock'],
+                ['label' => 'Sắp mở bán', 'value' => 'coming_soon'],
 
             ],
             'states' => [
-                ['label' => 'Published', 'value' => 'published'],
-                ['label' => 'Draft', 'value' => 'draft'],
-                ['label' => 'Hidden', 'value' => 'hidden'],
+                ['label' => 'Xuất bản', 'value' => 'published'],
+                ['label' => 'Nháp', 'value' => 'draft'],
+                ['label' => 'Ẩn', 'value' => 'hidden'],
             ]
         ]);
     }

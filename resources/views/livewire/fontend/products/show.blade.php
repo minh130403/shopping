@@ -1,7 +1,7 @@
 <div x-data x-init="setTimeout(() => $wire.recordView(), 30000)">
    <div class="border border-gray-200">
-        <div class="container">
-        <div class="breadcrumbs text-sm">
+        <div class="md:mx-48">
+        <div class="breadcrumbs text-sm px-2">
         <ul>
             <li><a href="/" navigate>Trang chủ</a></li>
             @if ( $product->category)
@@ -13,7 +13,7 @@
     </div>
    </div>
    <div class="bg-gray-100 mt-8 pb-4 mb-4">
-        <div class="container flex flex-row pt-12 gap-4 max-h-[440px] overflow-y-hidden">
+        <div class="md:mx-48 flex flex-col px-2 md:px-0 md:flex-row pt-12 gap-4 md:max-h-[440px] overflow-y-hidden">
             {{-- Anh san pham --}}
             <div class="gallery flex flex-col gap-4 overflow-y-scroll cursor-pointer">
 
@@ -25,7 +25,7 @@
             </div>
             <div class="relative">
                 {{-- <x-avatar :image="$user->avatar" :title="$user->username" :subtitle="$user->name" class="!w-10" /> --}}
-                <span class="block absolute -top-2 right-0 bg-red-500 rounded-xl px-2 text-white"> {{ $product->status == 'out_of_stock' ? 'Out of Stock'  : ucfirst( $product->status) }} </span>
+                <span class="block absolute -top-2 right-0 bg-red-500 rounded-xl px-2 text-white"> {{ $product->status == 'out_of_stock' ? 'Hết hàng'  :( $product->status == 'coming_soon' ? 'Sắp mở bán' : ucfirst($product->status))}} </span>
                 <img class="w-[400px] h-full border border-gray-300 object-cover rounded" alt="{{ $selectedPhoto->alt ?? ''  }}" src="{{ 'https://i0.wp.com/thewordwarrior.com/wp-content/uploads/woocommerce-placeholder.png?fit=655,655&ssl=1' ?? Storage::url($selectedPhoto->path ?? 'photos/sample_product.webp') }}" alt="">
 
             </div>
@@ -65,10 +65,10 @@
     {{-- Moo ta  --}}
    </div>
    <div class="bg-white mb-4 ">
-        <div class="container flex flex-row ">
+        <div class="md:mx-48 px-2 md:px-0 flex flex-row gap-4 ">
              <x-sidebar-cart  :$root title="Danh mục" />
 {{-- Mo ta --}}
-             <div class="description flex-3/4 mr-8 order-1 ">
+             <div class="description wrap-text flex-3/4 w-full order-1 ">
                 <h3 class="uppercase block font-bold py-4 mb-3 border-b-2 border-gray-200 ">Chi tiết sản phẩm {{ $product->name }} </h3>
                 <article class="prose prose-lg mb-4 max-w-[100%]">{!! Str::markdown($product->description ?? '') !!}</article>
                  @if (session()->has('createdCmt'))
@@ -77,7 +77,7 @@
                             {{ session('createdCmt') }}
                         </div>
                     @endif
-                <div class="form-comment mb-3 mt-[40px] pb-2 border-b border-gray-200">
+                <div class="form-comment mb-3 md:mt-[40px] pb-2 border-b border-gray-200">
                     <form action="" wire:submit="createCmt" >
                     <div class="form-heading relative p-4 border border-gray-300 mb-3">
                         {{-- <span>Chất lượng sản phẩm</span> --}}
@@ -85,7 +85,7 @@
                     </div>
                     <x-textarea class="mb-3" wire:model="contentCmt" placeholder="Viết bình luận ..." rows="5" />
                     <div class="flex w-full gap-2">
-                            <x-input class="min-w-[400px]" wire:model="titleCmt" placeholder="Tiêu đề"  />
+                            <x-input class="md:min-w-[400px]" wire:model="titleCmt" placeholder="Tiêu đề"  />
                             <x-input class="flex-1/2" wire:model="authorCmt" placeholder="Họ và tên"  />
                             <input type="submit" class="btn bg-green-400 text-white" value="Gửi"/>
 
@@ -123,7 +123,7 @@
    {{-- San pham tuong tu --}}
    <div class="mb-6">
         @if ($productSame)
-       <div class="container">
+       <div class="md:mx-48 px-2 md:px-0">
             <div class="heading">
                 <h3 class="uppercase block font-bold py-4 mb-3">Sản phẩm cùng loại</h3>
             </div>

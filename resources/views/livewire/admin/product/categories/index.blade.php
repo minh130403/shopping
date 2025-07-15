@@ -1,13 +1,13 @@
 <div>
     <div class="mt-3 mb-3">
-        <x-button label="Add category" icon="o-plus" class="bg-white" link="/admin/categories/products/create"/>
+        <x-button label="Thêm danh mục" icon="o-plus" class="bg-white" link="/admin/categories/products/create"/>
     </div>
     <div class="mb-3 bg-white px-2 py-1">
         @php
             $headers = [
                 ['key' => 'id', 'label' => '#'],
-                ['key' => 'name', 'label' => 'Category Name'],
-                ['key' => 'slug', 'label' => 'Slug'],
+                ['key' => 'name', 'label' => 'Tên danh mục'],
+                ['key' => 'slug', 'label' => 'Đường dẫn'],
                   # <-- nested attributes
             ];
         @endphp

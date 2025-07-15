@@ -8,12 +8,12 @@
     <div class="mt-3 grid grid-cols-3 gap-2">
         <div class="col-span-2">
                 <div class="info bg-white rounded ">
-                    <p class="mb-1 hover:bg-gray-200 block  px-4 py-2"> <span class="font-semibold">Customer name: </span> <span>{{ $order->customer_name }}</span> </p>
-                    <p  class="mb-1 hover:bg-gray-200 block  px-4 py-2"> <span class="font-semibold">Address: </span> <span>{{ $order->address }}</span> </p>
-                    <p  class="mb-1 hover:bg-gray-200 block  px-4 py-2"> <span class="font-semibold">Phone: </span> <span>{{ $order->phone }}</span> </p>
-                    <p  class="mb-1 hover:bg-gray-200 block  px-4 py-2"> <span class="font-semibold">Note: </span> <span>{{ $order->note }}</span> </p>
-                    <p  class="mb-1 hover:bg-gray-200 block  px-4 py-2"> <span class="font-semibold">Total Amount: </span> <span> {{ $order->amount }} unit</span> </p>
-                    <p  class="mb-1 hover:bg-gray-200 block  px-4 py-2"> <span class="font-semibold">Total Price: </span> <span>{{ number_format($order->value) . ' VND' ?? 'Chưa xác định' }}</span> </p>
+                    <p class="mb-1 hover:bg-gray-200 block  px-4 py-2"> <span class="font-semibold">Tên khách hàng: </span> <span>{{ $order->customer_name }}</span> </p>
+                    <p  class="mb-1 hover:bg-gray-200 block  px-4 py-2"> <span class="font-semibold">Địa chỉ: </span> <span>{{ $order->address }}</span> </p>
+                    <p  class="mb-1 hover:bg-gray-200 block  px-4 py-2"> <span class="font-semibold">Số điện thoại: </span> <span>{{ $order->phone }}</span> </p>
+                    <p  class="mb-1 hover:bg-gray-200 block  px-4 py-2"> <span class="font-semibold">Ghi chú: </span> <span>{{ $order->note }}</span> </p>
+                    <p  class="mb-1 hover:bg-gray-200 block  px-4 py-2"> <span class="font-semibold">Tổng số lượng sản phẩm: </span> <span> {{ $order->amount }} unit</span> </p>
+                    <p  class="mb-1 hover:bg-gray-200 block  px-4 py-2"> <span class="font-semibold">Tổng giá trị: </span> <span>{{ number_format($order->value) . ' VND' ?? 'Chưa xác định' }}</span> </p>
 
                 </div>
                 <div class="mt-3">
@@ -53,7 +53,7 @@
 
                     <x-slot:actions>
                         {{-- <x-button label="Cancel" /> --}}
-                        <x-button label="Update!" class="btn-primary" type="submit" spinner="save" />
+                        <x-button label="Cập nhật!" class="btn-primary" type="submit" spinner="save" />
                     </x-slot:actions>
                 </x-form>
                 <div>

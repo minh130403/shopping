@@ -1,10 +1,10 @@
 <div>
     <div class="" >
-        <img class="w-full h-80 object-cover" src="{{ 'https://cdn.pixabay.com/photo/2017/05/09/03/46/bc-2297205_960_720.jpg' ?? Storage::url($category->avatar->path ?? '' )}}" alt="">
+        <img class="px-2 md:px-0 h-80 object-cover" src="{{ 'https://cdn.pixabay.com/photo/2017/05/09/03/46/bc-2297205_960_720.jpg' ?? Storage::url($category->avatar->path ?? '' )}}" alt="">
     </div>
     <div class="border border-gray-200">
-            <div class="container">
-            <div class="breadcrumbs text-sm">
+            <div class="md:mx-48">
+            <div class="breadcrumbs w-full text-sm px-2 md:px-0">
             <ul>
                 <li><a href="/" navigate>Trang chủ</a></li>
                 @if ($category->parent_category)
@@ -23,7 +23,7 @@
         </div>
     </div>
     <div class="mb-3">
-        <div class="container pt-4 flex flex-row">
+        <div class="md:mx-48 pt-4 flex flex-col md:flex-row px-2 md:px-0">
             <div class="sidebar flex-1/4 order-1 mr-3">
                 <div class="nav mb-3">
                     {{-- <ul class="list-none"> --}}
@@ -62,7 +62,7 @@
             </div>
             <div class="main-content flex-3/4 order-2 min-h-[400px]">
                 <h2 class="font-semibold text-2xl mb-3">{{ $category->name }}</h2>
-                    <div class="grid grid-cols-4 gap-2 ">
+                    <div class="grid grid-cols-2  md:grid-cols-4 gap-2 ">
                     @forelse ($products  as $item)
                        <x-my-card :$item type="products" />
                     @empty

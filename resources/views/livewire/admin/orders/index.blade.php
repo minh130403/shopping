@@ -3,11 +3,11 @@
         @php
             $headers = [
                 ['key' => 'id', 'label' => '#'],
-                ['key' => 'customer_name', 'label' => 'Customer Name'],
-                ['key' => 'phone', 'label' => 'Phone'],
-                ['key' => 'amount', 'label' => 'Amount'],
-                ['key' => 'value', 'label' => 'Total Price'],
-                ['key' => 'created_at', 'label' => 'Time Ordered']
+                ['key' => 'customer_name', 'label' => 'Tên khách hàng'],
+                ['key' => 'phone', 'label' => 'Điện thoại'],
+                ['key' => 'amount', 'label' => 'Số lượng sản phẩm'],
+                ['key' => 'value', 'label' => 'Tổng giá trị'],
+                ['key' => 'created_at', 'label' => 'Thời điểm đặt hàng']
                   # <-- nested attributes
             ];
         @endphp

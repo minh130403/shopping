@@ -2,14 +2,13 @@
     <div class="mt-3">
         <x-form wire:submit="save" class="grid grid-col grid-cols-4 gap-2">
             <div class="grow col-span-3">
-                <x-input label="Site Name" wire:model="settings.site_name" />
-                <x-input label="Address" wire:model="settings.site_address" />
-                <x-input label="Phone 1" wire:model="settings.site_phone1" />
-                <x-input label="Phone 2" wire:model="settings.site_phone2" />
-                <x-select label="About us page" wire:model="settings.site_about_us" :options="$pages"     option-value="id"
+                <x-input label="Tên trang web" wire:model="settings.site_name" />
+                <x-input label="Địa chỉ" wire:model="settings.site_address" />
+
+                <x-select label="Trang giới thiệu" wire:model="settings.site_about_us" :options="$pages"     option-value="id"
                     option-label="title"/>
                 <x-select
-                    label="Contact page"
+                    label="Trang liên hệ"
                     wire:model="settings.site_contact"
                     :options="$pages"
                     option-value="id"
@@ -22,14 +21,16 @@
 
 
             <div class="w-fit">
+                <x-input  class="mb-3" label="Hotline" wire:model="settings.site_phone1" />
+                <x-input  class="mb-3" label="Zalo" wire:model="settings.site_phone2" />
                 <div class="mb-3">
-                    <span class="text-lg font-bold mt-3">Logo: </span>
+                    <span class="text-lg block font-bold w-full">Logo: </span>
                     @if($settings['site_logo'])
                         <div class="mb-3">
                             <img class="w-48 h-48 rounded" src="{{ 'https://99designs-blog.imgix.net/blog/wp-content/uploads/2022/06/Starbucks_Corporation_Logo_2011.svg-e1657703028844.png?auto=format&q=60&fit=max&w=930' ?? Storage::url($settings['site_logo'] )}}" alt=""  wire:click="openModal('site_logo')">
                         </div>
                     @else
-                        <x-button label="Open" wire:click="openModal('site_logo')" icon="o-plus" class="w-48 h-48"/>
+                        <x-button  wire:click="openModal('site_logo')" icon="o-photo" class="w-48 h-48"/>
                     @endif
                 </div>
             </div>
@@ -55,9 +56,9 @@
                 @endif
             </div>
 
-            <x-slot:actions class="col-span-4">
+            <x-slot:actions class="col-span-4 border-t-1 pt-2 border-gray-200">
                 {{-- <x-button label="Cancel" /> --}}
-                <x-button label="Save" class="btn-primary" type="submit" spinner="save" />
+                <x-button label="Lưu" class="btn-primary" type="submit" spinner="save" />
             </x-slot:actions>
         </x-form>
     </div>
@@ -83,7 +84,7 @@
 
         <x-slot:actions>
             <x-button label="Cancel" @click="$wire.selectedPhotoModal = false" />
-            <x-button label="Save" @click="$wire.selectedPhotoModal = false;" class="bg-blue-500 text-white" wire:click="closeModal()"/>
+            <x-button label="Lưu" @click="$wire.selectedPhotoModal = false;" class="bg-blue-500 text-white" wire:click="closeModal()"/>
         </x-slot:actions>
     </x-modal>
 </div>

@@ -9,7 +9,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 
 #[Layout("components.layouts.admin")]
-#[Title("Product Categories")]
+#[Title("Danh Mục Sản Phẩm")]
 class Index extends Component
 {
     use WithPagination;

@@ -9,7 +9,7 @@ use Livewire\Attributes\Title;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Rule;
 
-#[Title("Posts Editor")]
+#[Title("Chỉnh sửa bài viết")]
 #[Layout("components.layouts.admin")]
 class Edit extends Component
 {
@@ -36,7 +36,13 @@ class Edit extends Component
     public bool $selectedPhotoModal = false;
 
     public function mount($id){
-        $this->selectedPost  = Post::find($id);
+        if($id){
+            $this->selectedPost  = null;
+        } else {
+            $this->selectedPost  = Post::find($id);
+        }
+
+
 
         if($this->selectedPost) {
             $this->title = $this->selectedPost->title;

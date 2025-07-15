@@ -1,14 +1,14 @@
 <div>
     <div class="mt-3 mb-3">
-        <x-button label="All post" icon="o-cube" class="bg-white" link="/admin/posts/all"/>
+        <x-button label="Tất cả bài viết" icon="o-cube" class="bg-white" link="/admin/posts/all"/>
     </div>
     <div class="mb-3 bg-white px-2 py-1">
         @php
             $headers = [
                 ['key' => 'id', 'label' => '#'],
-                ['key' => 'avatar', 'label' => 'Avatar'],
-                ['key' => 'title', 'label' => 'Title'],
-                ['key' => 'slug', 'label' => 'Slug'],
+                ['key' => 'avatar', 'label' => 'Ảnh đại diện'],
+                ['key' => 'title', 'label' => 'Tiêu đề'],
+                ['key' => 'slug', 'label' => 'Đường dẫn'],
                   # <-- nested attributes
             ];
         @endphp

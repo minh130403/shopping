@@ -1,14 +1,14 @@
 <div>
     <div class="mt-3 mb-3">
-        <x-button label="Add product" icon="o-plus" class="bg-white" link="/admin/products/create"/>
+        {{-- <x-button label="Add product" icon="o-plus" class="bg-white" link="/admin/products/create"/> --}}
     </div>
     <div class="mb-3 bg-white px-2 py-1">
         @php
             $headers = [
                 ['key' => 'id', 'label' => '#'],
-                ['key' => 'name', 'label' => 'Author'],
-                ['key' => 'product', 'label' => 'Product'],
-                ['key' => 'state', 'label' => 'State',],
+                ['key' => 'name', 'label' => 'Tác giả'],
+                ['key' => 'product', 'label' => 'Sản phẩm'],
+                ['key' => 'state', 'label' => 'Trạng thái',],
                   # <-- nested attributes
             ];
         @endphp

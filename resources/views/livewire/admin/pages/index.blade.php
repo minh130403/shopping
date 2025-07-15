@@ -1,12 +1,12 @@
 <div>
     <div class="mt-3 mb-3">
-        <x-button label="Add page" icon="o-plus" class="bg-white" link="/admin/pages/create"/>
+        <x-button label="Thêm trang" icon="o-plus" class="bg-white" link="/admin/pages/create"/>
     </div>
     <div class="mb-3 bg-white px-2 py-1">
         @php
             $headers = [
                 ['key' => 'id', 'label' => '#'],
-                ['key' => 'title', 'label' => 'Title'],
+                ['key' => 'title', 'label' => 'Tiêu đề'],
                   # <-- nested attributes
             ];
         @endphp

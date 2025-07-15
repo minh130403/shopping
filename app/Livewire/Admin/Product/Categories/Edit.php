@@ -11,7 +11,7 @@ use Livewire\Component;
 use Illuminate\Support\Str;
 
 #[Layout("components.layouts.admin")]
-#[Title("Edit Category")]
+#[Title("Chỉnh Sửa Sản Phẩm")]
 class Edit extends Component
 {
     public ?Category $selectedCategory = null;
@@ -81,6 +81,7 @@ class Edit extends Component
         return view('livewire.admin.product.categories.edit',  [
             'photos' => Photo::all(),
             'categories' => Category::select('id', 'name')
+                        ->whereNull("parent_category")
                         ->orderBy('created_at')->get()
         ]);
     }

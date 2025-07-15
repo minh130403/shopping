@@ -1,16 +1,16 @@
 <div>
     <div class="mt-3 mb-3">
-        <x-button label="Add post" icon="o-plus" class="bg-white" link="/admin/posts/create"/>
+        <x-button label="Thêm bài viết" icon="o-plus" class="bg-white" link="/admin/posts/create"/>
         <x-button label="{{ $amountInTrash }}" icon="o-trash" class="bg-white" link="/admin/posts/trash"/>
     </div>
     <div class="mb-3 bg-white px-2 py-1">
         @php
             $headers = [
                 ['key' => 'id', 'label' => '#'],
-                ['key' => 'avatar', 'label' => 'Avatar'],
-                ['key' => 'title', 'label' => 'Title'],
-                ['key' => 'views_count', 'label' => 'Views Count'],
-                ['key' => 'slug', 'label' => 'Slug'],
+                ['key' => 'avatar', 'label' => 'Ảnh đại diện'],
+                ['key' => 'title', 'label' => 'Tiêu đề'],
+                ['key' => 'views_count', 'label' => 'Lượt xem'],
+                ['key' => 'slug', 'label' => 'Đường dẫn'],
                   # <-- nested attributes
             ];
         @endphp

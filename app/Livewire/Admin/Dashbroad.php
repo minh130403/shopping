@@ -12,7 +12,7 @@ use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-#[Title("Dashbroad")]
+#[Title("Khám phá")]
 #[Layout("components.layouts.admin")]
 class Dashbroad extends Component
 {

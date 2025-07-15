@@ -10,7 +10,7 @@ use Livewire\Component;
 use Illuminate\Support\Str;
 
 #[Layout("components.layouts.admin")]
-#[Title("Page Editor")]
+#[Title("Chỉnh Sửa Trang")]
 class Edit extends Component
 {
     public ?Page $selectedPage = null;
@@ -22,7 +22,15 @@ class Edit extends Component
     public $content;
 
     public function mount($id){
-          $this->selectedPage  = Page::find($id);
+
+        if($id == "create"){
+            $this->selectedPage  = null;
+        } else {
+             $this->selectedPage  = Page::find($id);
+        }
+
+
+
 
           if($this->selectedPage){
                 $this->title = $this->selectedPage->title;

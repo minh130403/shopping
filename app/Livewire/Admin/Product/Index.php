@@ -11,7 +11,7 @@ use Livewire\WithPagination;
 
 
 #[Layout('components.layouts.admin')]
-#[Title('Product Editor')]
+#[Title('Sản Phẩm')]
 class Index extends Component
 {
     use WithPagination;

@@ -73,6 +73,7 @@ class DatabaseSeeder extends Seeder
 
         $views = [];
         $comments = [];
+
         foreach (Product::cursor() as $item) {
             foreach (range(1, 3) as $i) {
                 $views[] = View::factory()->make([
@@ -104,7 +105,7 @@ class DatabaseSeeder extends Seeder
         }
         View::insert($postViews);
 
-        Order::factory()->count(36)->create();
+        Order::factory()->count(7)->create();
 
         $orderItems = [];
         foreach (Order::cursor() as $order) {

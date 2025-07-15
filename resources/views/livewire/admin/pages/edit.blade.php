@@ -1,7 +1,7 @@
 <div >
     @if ($selectedPage)
         <div class="mb-3">
-            <x-button label="Add page" icon="o-plus" class="bg-white" link="/admin/pages/create"/>
+            <x-button label="Thêm trang" icon="o-plus" class="bg-white" link="/admin/pages/create"/>
         </div>
     @endif
     <div>
@@ -15,10 +15,11 @@
     <div>
         <x-form wire:submit="save" class="">
 
-            <x-input label="Title" wire:model="title" />
+            <x-input label="Tiêu đề" wire:model="title" />
 
-            <label class="text-md font-semibold" for="">Content</label>
+            <label class="text-md font-semibold" for=""></label>
             <x-code
+                label="Nội dung"
                 height="400px"
                 wire:model="content"
                 dark-theme="cobalt"
@@ -27,7 +28,7 @@
             />
 
             <x-slot:actions>
-                <x-button label="Save" class="btn-primary" type="submit" spinner="save" />
+                <x-button label="Lưu " class="btn-primary" type="submit" spinner="save" />
             </x-slot:actions>
         </x-form>
     </div>

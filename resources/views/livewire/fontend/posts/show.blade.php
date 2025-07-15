@@ -1,6 +1,6 @@
 <div>
     <div class="mt-3 mb-3">
-        <div class="container flex flex-row">
+        <div class="md:mx-48 flex flex-row">
             <x-sidebar-cart :root="$categories" title="Danh mục đề xuất" />
 
            <div class="post flex-3/4 pr-8 order-1">
@@ -36,7 +36,7 @@
         </div>
     </div>
     <div class="mb-3">
-        <div class="container">
+        <div class="md:mx-48">
             <div class="post-recommend">
                 <h3 class="font-semibold text-lg mb-3"> Sản phẩm đề xuất  </h3>
                  <div class="flex-3/4 blog-list grid grid-cols-5 gap-4">

@@ -1,6 +1,6 @@
 <div>
     <div class="mb-6 mt-3">
-        <form class="container grid grid-cols-2 gap-3"  wire:submit="createOrder">
+        <form class="md:mx-48 grid md:grid-cols-2 grid-cols-1 gap-3 px-2 md:px-0"  wire:submit="createOrder">
             <div class="customer-info">
                 <div class="heading flex flex-row gap-2 pb-4 border-b border-gray-200 mb-3">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">

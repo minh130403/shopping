@@ -8,7 +8,7 @@ use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-#[Title("Orders")]
+#[Title("Quản Lý Đơn hàng")]
 #[Layout("components.layouts.admin")]
 class Index extends Component
 {

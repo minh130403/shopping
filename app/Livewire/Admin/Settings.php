@@ -10,7 +10,7 @@ use Livewire\Attributes\Title;
 use Livewire\Component;
 
 
-#[Title("Settings")]
+#[Title("Cấu hình")]
 #[Layout("components.layouts.admin")]
 class Settings extends Component
 {

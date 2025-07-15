@@ -1,4 +1,4 @@
-<div class="flex-1/4 mt-3 order-2">
+<div class="flex-1/4 mt-3 order-2 hidden md:block">
     <h3 class="text-lg font-semibold block mb-3">{{ $title ?? 'Danh mục đề xuất'}}</h3>
     <ul class="list-inside list-none">
         @forelse ($root ?? [] as $item)

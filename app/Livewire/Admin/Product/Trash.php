@@ -9,7 +9,7 @@ use Livewire\Component;
 
 
 #[Layout('components.layouts.admin')]
-#[Title("Product Trash")]
+#[Title("Thùng rác")]
 
 class Trash extends Component
 {
