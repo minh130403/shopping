@@ -106,7 +106,7 @@ class Edit extends Component
 
 
         $product =  Product::updateOrCreate(
-        ['id' => $this->selectedProduct?->id ?? generateRandomId()],
+        ['id' => $this->selectedProduct?->id ?? null],
         [
             'name' => $this->name,
             'description' => $this->description,
