@@ -79,6 +79,7 @@ class Edit extends Component
         }
 
 
+
        session()->flash('success', 'Đã cập nhật sản phẩm thành công!');
 
        return redirect("/admin/categories/products/" . $this->selectedCategory->id);
