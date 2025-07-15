@@ -17,16 +17,21 @@
             <h3 class="font-semibold italic text-blue-500">Top 10 sản phẩm bán chạy nhất</h3>
 
             @php
-                $products = App\Models\Product::withCount('views')->orderBy('views_count', 'desc')
-                                ->take(10)
-                                ->get();
+                $products = App\Models\Product::
+                        withCount('item')
+                        ->with('avatar')
+                        ->orderByDesc('item_count')
+                        // ->where('state', 'published')
+                        ->take(10)
+                        ->get();
+
 
                 // dd($products);
 
                 $headers = [
                     // ['key' => 'id', 'label' => '#'],
                     ['key' => 'name', 'label' => 'Tên sản phẩm', 'class' => 'w-[200px]'],
-                    ['key' => 'views_count', 'label' => 'Lượt xem'] # <---- nested attributes
+                    ['key' => 'item_count', 'label' => 'Lượt đặt hàng'] # <---- nested attributes
                 ];
             @endphp
 

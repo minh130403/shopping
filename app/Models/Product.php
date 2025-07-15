@@ -61,7 +61,7 @@ class Product extends Model
     }
 
 
-    public function productUsingAsItemOrder(){
+    public function item(){
         return $this->hasMany(OrderItem::class, 'product_id');
     }
 
